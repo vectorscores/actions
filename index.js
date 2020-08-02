@@ -9,7 +9,12 @@ const packageJsonLinter = new NpmPackageJsonLint({
   config: {
     rules: {
       "require-author": "error",
-      "require-bugs": "error",
+      "require-description": "error",
+      "prefer-property-order": ["error", []],
+      "require-name": "error",
+      "valid-values-name-scope": ["error", ["@vectorscores"]],
+      "require-version": "error",
+      "prefer-scripts": ["warning", ["build", "test"]],
     },
   },
 });
@@ -17,8 +22,15 @@ const packageJsonLinter = new NpmPackageJsonLint({
 try {
   const { results } = packageJsonLinter.lint();
   const [firstResult] = results;
+
   if (firstResult.errorCount !== 0) {
-    core.info(JSON.stringify(firstResult));
+    core.debug(JSON.stringify(firstResult));
+
+    firstResult.issues.forEach((i) => {
+      const logMethod = i.severity === "error" ? "error" : "warning";
+      core[logMethod](i.lintMessage);
+    });
+
     throw new Error(
       `${firstResult.errorCount} errors found in ${firstResult.filePath}`
     );
