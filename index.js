@@ -2,9 +2,10 @@ const core = require("@actions/core");
 const { NpmPackageJsonLint } = require("npm-package-json-lint");
 
 try {
-  const pkgPath = core.getInput("package-json-path");
+  const pkgPath = "./package.json";
 
   const packageJsonLinter = new NpmPackageJsonLint({
+    cwd: process.env.GITHUB_WORKSPACE,
     packageJsonObject: require(pkgPath),
     packageJsonFilePath: pkgPath,
     config: {
