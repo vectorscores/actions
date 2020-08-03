@@ -1,25 +1,27 @@
 const core = require("@actions/core");
 const { NpmPackageJsonLint } = require("npm-package-json-lint");
 
-const pkgPath = "./package.json";
-
-const packageJsonLinter = new NpmPackageJsonLint({
-  packageJsonObject: require(pkgPath),
-  packageJsonFilePath: pkgPath,
-  config: {
-    rules: {
-      "require-author": "error",
-      "require-description": "error",
-      "prefer-property-order": ["error", []],
-      "require-name": "error",
-      "valid-values-name-scope": ["error", ["@vectorscores"]],
-      "require-version": "error",
-      "prefer-scripts": ["warning", ["build", "test"]],
-    },
-  },
-});
-
 try {
+  const pkgPath = core.getInput("package-json-path");
+
+  const packageJsonLinter = new NpmPackageJsonLint({
+    packageJsonObject: require(pkgPath),
+    packageJsonFilePath: pkgPath,
+    config: {
+      rules: {
+        "require-author": "error",
+        "require-description": "error",
+        "prefer-property-order": ["error", []],
+        "require-name": "error",
+        "valid-values-name-scope": ["error", ["@vectorscores"]],
+        "require-version": "error",
+        "prefer-scripts": ["warning", ["build", "test"]],
+      },
+    },
+  });
+
+  //
+
   const { results } = packageJsonLinter.lint();
   const [firstResult] = results;
 
