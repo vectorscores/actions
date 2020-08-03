@@ -1,14 +1,16 @@
+const path = require("path");
 const core = require("@actions/core");
 const { NpmPackageJsonLint } = require("npm-package-json-lint");
 
 try {
   const cwd = core.getInput("cwd");
-  const pkgPath = core.getInput("package-json-path");
+  const relativePath = core.getInput("package-json-path");
+  const packageJsonPath = path.resolve(cwd, relativePath);
 
   const packageJsonLinter = new NpmPackageJsonLint({
     cwd,
-    packageJsonObject: require(pkgPath),
-    packageJsonFilePath: pkgPath,
+    packageJsonObject: require(packageJsonPath),
+    packageJsonFilePath: relativePath,
     config: {
       rules: {
         "require-author": "error",
