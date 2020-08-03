@@ -4,7 +4,7 @@ const { NpmPackageJsonLint } = require("npm-package-json-lint");
 try {
   const pkgPath = "package.json";
 
-  const cwd: = process.env.GITHUB_WORKSPACE;
+  const cwd = process.env.GITHUB_WORKSPACE;
   console.log(cwd)
 
   const packageJsonLinter = new NpmPackageJsonLint({
