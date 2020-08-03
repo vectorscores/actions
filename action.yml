@@ -4,6 +4,9 @@ runs:
   using: "node12"
   main: "index.js"
 inputs:
+  cwd:
+    description: 'working directory'
+    required: true
   package-json-path:
     description: 'path to package.json to test'
     required: true

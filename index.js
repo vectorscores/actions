@@ -2,9 +2,11 @@ const core = require("@actions/core");
 const { NpmPackageJsonLint } = require("npm-package-json-lint");
 
 try {
+  const cwd = core.getInput("cwd");
   const pkgPath = core.getInput("package-json-path");
 
   const packageJsonLinter = new NpmPackageJsonLint({
+    cwd,
     packageJsonObject: require(pkgPath),
     packageJsonFilePath: pkgPath,
     config: {

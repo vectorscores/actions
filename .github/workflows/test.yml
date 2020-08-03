@@ -10,4 +10,5 @@ jobs:
       - name: test action
         uses: ./
         with:
-          package-json-path: "./package.json"
+          cwd: .
+          package-json-path: package.json
