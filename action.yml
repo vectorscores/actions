@@ -5,8 +5,9 @@ runs:
   main: "index.js"
 inputs:
   cwd:
-    description: 'working directory'
+    description: "working directory"
     required: true
   package-json-path:
-    description: 'path to package.json to test'
+    description: "path to package.json to test"
     required: true
+    default: "package.json"
