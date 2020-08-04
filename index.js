@@ -1,6 +1,7 @@
 const path = require("path");
 const core = require("@actions/core");
 const { NpmPackageJsonLint } = require("npm-package-json-lint");
+const { rules: defaultRules } = require("npm-package-json-lint-config-default");
 
 try {
   const cwd = core.getInput("cwd");
@@ -14,6 +15,7 @@ try {
     config: {
       extends: "npm-package-json-lint-config-default",
       rules: {
+        ...defaultRules,
         "require-author": "error",
         "require-description": "error",
         "prefer-property-order": ["error", []],
