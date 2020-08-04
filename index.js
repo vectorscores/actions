@@ -16,6 +16,13 @@ try {
       rules: {
         "require-author": "error",
         "require-description": "error",
+        "description-format": [
+          "error",
+          {
+            requireCapitalFirstLetter: true,
+            forbidEndingPeriod: true,
+          },
+        ],
         "prefer-property-order": ["error", []],
         "prefer-scripts": ["warning", ["build", "test"]],
         "valid-values-name-scope": ["error", ["@vectorscores"]],
