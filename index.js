@@ -13,7 +13,6 @@ try {
     packageJsonObject: require(packageJsonPath),
     packageJsonFilePath: relativePath,
     config: {
-      extends: "npm-package-json-lint-config-default",
       rules: {
         ...defaultRules,
         "require-author": "error",
