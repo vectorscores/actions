@@ -1,5 +1,6 @@
 {
-  "version": "1.0.b",
+  "name": "@vectorscores/actions",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
