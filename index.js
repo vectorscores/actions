@@ -12,14 +12,13 @@ try {
     packageJsonObject: require(packageJsonPath),
     packageJsonFilePath: relativePath,
     config: {
+      extends: "npm-package-json-lint-config-default",
       rules: {
         "require-author": "error",
         "require-description": "error",
         "prefer-property-order": ["error", []],
-        "require-name": "error",
-        "valid-values-name-scope": ["error", ["@vectorscores"]],
-        "require-version": "error",
         "prefer-scripts": ["warning", ["build", "test"]],
+        "valid-values-name-scope": ["error", ["@vectorscores"]],
       },
     },
   });

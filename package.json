@@ -2,15 +2,15 @@
   "name": "@vectorscores/actions",
   "version": "1.0.0",
   "description": "",
+  "license": "MIT",
+  "author": "John Teske",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "John Teske",
-  "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "npm-package-json-lint": "^5.1.0"
+    "npm-package-json-lint": "^5.1.0",
+    "npm-package-json-lint-config-default": "^3.0.0"
   }
 }
