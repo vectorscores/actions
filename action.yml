@@ -9,5 +9,4 @@ inputs:
     required: true
   package-json-path:
     description: "path to package.json to test"
-    required: true
     default: "package.json"
