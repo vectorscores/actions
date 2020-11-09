@@ -25,7 +25,8 @@ try {
 
   //
 
-  const { results } = packageJsonLinter.lint();
+  const { results, errorCount } = packageJsonLinter.lint();
+  core.debug(JSON.stringify(results));
 
   results.forEach((r) => {
     core.debug(JSON.stringify(r));
@@ -36,9 +37,9 @@ try {
     });
   });
 
-  if (results.errorCount !== 0) {
+  if (errorCount !== 0) {
     throw new Error(
-      `${results.errorCount} errors found`
+      `${errorCount} errors found`
     );
   }
 } catch (err) {
