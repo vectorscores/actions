@@ -17,7 +17,6 @@ try {
         ...defaultRules,
         "require-author": "error",
         "require-description": "error",
-        "prefer-property-order": ["error", []],
         "prefer-scripts": ["warning", ["build", "test"]],
         "valid-values-name-scope": ["error", ["@vectorscores"]],
       },
