@@ -39,7 +39,7 @@ try {
 
   if (results.errorCount !== 0) {
     throw new Error(
-      `${firstResult.errorCount} errors found in ${firstResult.filePath}`
+      `${results.errorCount} errors found`
     );
   }
 } catch (err) {
