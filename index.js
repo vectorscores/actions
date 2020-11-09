@@ -27,16 +27,17 @@ try {
   //
 
   const { results } = packageJsonLinter.lint();
-  const [firstResult] = results;
 
-  if (firstResult.errorCount !== 0) {
-    core.debug(JSON.stringify(firstResult));
+  results.forEach((r) => {
+    core.debug(JSON.stringify(r));
 
-    firstResult.issues.forEach((i) => {
+    r.issues.forEach((i) => {
       const logMethod = i.severity === "error" ? "error" : "warning";
       core[logMethod](i.lintMessage);
     });
+  });
 
+  if (results.errorCount !== 0) {
     throw new Error(
       `${firstResult.errorCount} errors found in ${firstResult.filePath}`
     );
